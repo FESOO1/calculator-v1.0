@@ -38,6 +38,21 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    row-gap: 25px;
+}
+
+/* MAIN LOGO AND THEME */
+
+.main-logo-and-theme {
+    width: var(--width);
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.main-logo-text {
+    color: var(--text-white);
+    font-size: 1.65em;
 }
 
 /* MAIN CALCULATOR */
