@@ -74,6 +74,27 @@ main {
     border: 0;
     background-color: var(--toggle-background-keypad-background);
     position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.main-theme-button::before {
+    content: '1 2 3';
+    position: absolute;
+    bottom: calc(100% + 2px);
+    left: 0;
+    color: var(--text-white);
+    font-size: 0.8rem;
+    letter-spacing: 4.62px;
+    padding-inline: 4px;
+}
+
+.main-theme-button-inner:last-of-type {
+    border-radius: 0 1rem 1rem 0;
+}
+
+.main-theme-button-inner:first-of-type {
+    border-radius: 1rem 0 0 1rem;
 }
 
 .main-theme-button-round {
