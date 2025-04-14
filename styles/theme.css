@@ -1,0 +1,13 @@
+/* THEME BUTTON TRANSLATE */
+
+.theme-one .main-theme-button-round {
+    left: 3.5px;
+}
+
+.theme-two .main-theme-button-round {
+    transform: translate(15px, -50%);
+}
+
+.theme-three .main-theme-button-round {
+    transform: translate(30.5px, -50%);
+}

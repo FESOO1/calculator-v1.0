@@ -108,6 +108,7 @@ main {
     border-radius: 2rem;
     border: 0;
     cursor: pointer;
+    transition: transform 100ms;
 }
 
 .main-theme-button-round:hover {
