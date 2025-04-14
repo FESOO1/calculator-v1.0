@@ -184,8 +184,8 @@ dotButton.addEventListener('click', addingDot);
 resetButton.addEventListener('click', resetFunction);
 
 window.addEventListener('keydown', e => {
+    // NUMBERS
     const numbers = '0123456789';
-
     if (numbers.includes(e.key)) {
         if (calculatorObject.input.inputOperator === undefined) {
             if (calculatorObject.input.inputArr1State === 0) {
@@ -208,5 +208,16 @@ window.addEventListener('keydown', e => {
             const outputValue2 = calculatorObject.input.inputArr2.join('').replaceAll(',', '');
             screenText.textContent = outputValue2;
         };
+    };
+
+    // OPERATORS
+    const operators = '+-*/';
+
+    if (operators.includes(e.key)) {
+        calculatorObject.input.inputOperator = e.key;
+
+        // HANDLING THE BOTTOM SCREEN TEXT
+        const outputValue1 = calculatorObject.input.inputArr1.join('').replaceAll(',', '');
+        bottomScreenText.textContent = `${outputValue1} ${calculatorObject.input.inputOperator}`;
     };
 });
