@@ -6,6 +6,7 @@ let themeDragElementPosX = 0;
 // THEME OBJECT
 const themeObject = {
     themeClasses: ['theme-one', 'theme-two', 'theme-three'],
+    themeTransform: ['translate(0, -50%)', 'translate(15px, -50%)', 'translate(30.5px, -50%)'],
 };
 
 // HANDLING THE THEME BUTTON INNERS
@@ -13,6 +14,7 @@ const themeObject = {
 for (let i = 0; i < themeButtonInners.length; i++) {
     themeButtonInners[i].addEventListener('click', () => {
         body.setAttribute('class', themeObject.themeClasses[i]);
+        themeDragElement.style.transform = themeObject.themeTransform[i];
     });
 };
 
@@ -49,6 +51,4 @@ function moveTheDragElement(e) {
         document.removeEventListener('mousemove', moveTheDragElement);
         themeDragElement.style.transform = 'translate(31px, -50%)';
     };
-
-    console.log(themeDragElementPosX);
 };
