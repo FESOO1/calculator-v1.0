@@ -170,14 +170,16 @@ function resettingEverything() {
 function addingDot() {
     if (calculatorObject.input.inputOperator === undefined) {
         if (!calculatorObject.input.inputArr1.includes('.')) {
+            calculatorObject.input.inputArr1State = 1;
             bottomScreenText.textContent = '';
             calculatorObject.input.inputArr1.push('.');
-
+            
             const outputValue1 = calculatorObject.input.inputArr1.join('').replaceAll(',', '');
             screenText.textContent = outputValue1;
         };
     } else {
         if (!calculatorObject.input.inputArr2.includes('.')) {
+            calculatorObject.input.inputArr2State = 1;
             bottomScreenText.textContent = '';
             calculatorObject.input.inputArr2.push('.');
 

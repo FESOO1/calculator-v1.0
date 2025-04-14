@@ -11,3 +11,58 @@
 .theme-three .main-theme-button-round {
     transform: translate(30.5px, -50%);
 }
+
+/* THEME TWO */
+
+.theme-two {
+    --main-background: hsl(0, 0%, 90%);
+    --toggle-background-keypad-background: hsl(0, 5%, 81%);
+    --screen-background: hsl(0, 0%, 93%);
+    --key-background: hsl(185, 42%, 37%);
+    --key-background-hover: hsl(185, 37%, 48%);
+    --key-background-shadow: hsl(185, 58%, 25%);
+    --key-background2: hsl(25, 98%, 40%);
+    --key-background-hover2: hsl(25, 89%, 48%);
+    --key-background-shadow2: hsl(25, 99%, 27%);
+    --key-background3: hsl(45, 7%, 89%);
+    --key-background-hover3: hsl(0, 0%, 100%);
+    --key-background-shadow3: hsl(35, 11%, 61%);
+    --text-grayish-blue: hsl(60, 10%, 19%);
+    --text-white: hsl(0, 0%, 100%);
+}
+
+.theme-two .main-logo-text,
+.theme-two .main-theme-text,
+.theme-two .main-theme-button::before,
+.theme-two .main-calculator-screen-text,
+.theme-two .main-calculator-screen-bottom-text {
+    color: var(--text-grayish-blue);
+}
+
+/* THEME THREE */
+
+.theme-three {
+    --main-background: hsl(268, 75%, 9%);
+    --toggle-background-keypad-background: hsl(268, 71%, 12%);
+    --screen-background: hsl(268, 71%, 12%);
+    --key-background: hsl(281, 89%, 26%);
+    --key-background-hover: hsl(281, 81%, 36%);
+    --key-background-shadow: hsl(285, 91%, 52%);
+    --key-background2: hsl(176, 100%, 44%);
+    --key-background-hover2: hsl(176, 98%, 54%);
+    --key-background-shadow2: hsl(177, 92%, 70%);
+
+    --key-background3: hsl(268, 47%, 21%);
+    --key-background-hover3: hsl(268, 42%, 35%);
+    --key-background-shadow3: hsl(290, 70%, 36%);
+    --text-grayish-blue: hsl(52, 100%, 62%);
+    --text-white: hsl(0, 0%, 100%);
+}
+
+.theme-three .main-logo-text,
+.theme-three .main-theme-text,
+.theme-three .main-theme-button::before,
+.theme-three .main-calculator-screen-text,
+.theme-three .main-calculator-screen-bottom-text {
+    color: var(--text-grayish-blue);
+}
