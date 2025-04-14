@@ -235,7 +235,6 @@ main {
         width: 100%;
     }
     .main-calculator-keyboard {
-        padding: 15px;
-        gap: 15px;
+        gap: 13px;
     }
 }
