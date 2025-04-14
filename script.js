@@ -32,40 +32,52 @@ const calculatorObject = {
 
 for (let i = 0; i < numberKeys.length; i++) {
     numberKeys[i].addEventListener('click', () => {
-        if (calculatorObject.input.inputOperator === undefined) {
+        handlingTheNumberKeys(numberKeys[i].value);
+    });
+};
+
+function handlingTheNumberKeys(value) {
+    if (calculatorObject.input.inputOperator === undefined) {
+        if (calculatorObject.input.inputArr1.length < 15) {
             if (calculatorObject.input.inputArr1State === 0) {
                 calculatorObject.input.inputArr1 = [];
             };
             calculatorObject.input.inputArr1State = 1;
             
             bottomScreenText.textContent = '';
-            calculatorObject.input.inputArr1.push(numberKeys[i].value);
+            calculatorObject.input.inputArr1.push(value);
 
             const outputValue1 = calculatorObject.input.inputArr1.join('').replaceAll(',', '');
             screenText.textContent = outputValue1;
-        } else {
+        };
+    } else {
+        if (calculatorObject.input.inputArr2.length < 15) {
             if (calculatorObject.input.inputArr2State === 0) {
                 calculatorObject.input.inputArr2 = [];
             };
             calculatorObject.input.inputArr2State = 1;
-            calculatorObject.input.inputArr2.push(numberKeys[i].value);
+            calculatorObject.input.inputArr2.push(value);
 
             const outputValue2 = calculatorObject.input.inputArr2.join('').replaceAll(',', '');
             screenText.textContent = outputValue2;
         };
-    });
+    };
 };
 
 // HANDLING THE OPERATOR BUTTONS
 
 for (let i = 0; i < operatorButtons.length; i++) {
     operatorButtons[i].addEventListener('click', () => {
-        calculatorObject.input.inputOperator = operatorButtons[i].value;
-
-        // HANDLING THE BOTTOM SCREEN TEXT
-        const outputValue1 = calculatorObject.input.inputArr1.join('').replaceAll(',', '');
-        bottomScreenText.textContent = `${outputValue1} ${calculatorObject.input.inputOperator}`;
+        handlingTheOperator(operatorButtons[i].value);
     });
+};
+
+function handlingTheOperator(value) {
+    calculatorObject.input.inputOperator = value;
+
+    // HANDLING THE BOTTOM SCREEN TEXT
+    const outputValue1 = calculatorObject.input.inputArr1.join('').replaceAll(',', '');
+    bottomScreenText.textContent = `${outputValue1} ${calculatorObject.input.inputOperator}`;
 };
 
 // DELETING A CHARACTER
@@ -187,37 +199,27 @@ window.addEventListener('keydown', e => {
     // NUMBERS
     const numbers = '0123456789';
     if (numbers.includes(e.key)) {
-        if (calculatorObject.input.inputOperator === undefined) {
-            if (calculatorObject.input.inputArr1State === 0) {
-                calculatorObject.input.inputArr1 = [];
-            };
-            calculatorObject.input.inputArr1State = 1;
-            
-            bottomScreenText.textContent = '';
-            calculatorObject.input.inputArr1.push(e.key);
-
-            const outputValue1 = calculatorObject.input.inputArr1.join('').replaceAll(',', '');
-            screenText.textContent = outputValue1;
-        } else {
-            if (calculatorObject.input.inputArr2State === 0) {
-                calculatorObject.input.inputArr2 = [];
-            };
-            calculatorObject.input.inputArr2State = 1;
-            calculatorObject.input.inputArr2.push(e.key);
-
-            const outputValue2 = calculatorObject.input.inputArr2.join('').replaceAll(',', '');
-            screenText.textContent = outputValue2;
-        };
+        handlingTheNumberKeys(e.key);
     };
 
     // OPERATORS
     const operators = '+-*/';
-
     if (operators.includes(e.key)) {
-        calculatorObject.input.inputOperator = e.key;
+        handlingTheOperator(e.key);
+    };
 
-        // HANDLING THE BOTTOM SCREEN TEXT
-        const outputValue1 = calculatorObject.input.inputArr1.join('').replaceAll(',', '');
-        bottomScreenText.textContent = `${outputValue1} ${calculatorObject.input.inputOperator}`;
+    // CALCULATE
+    if (e.key === 'Enter') {
+        calculateTheInputs();
+    };
+
+    // DELETING A CHARACTER
+    if (e.key === 'Backspace') {
+        deletingACharacter();
+    };
+
+    // DOT
+    if (e.key === '.') {
+        addingDot();
     };
 });
