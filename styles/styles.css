@@ -39,6 +39,7 @@ main {
     align-items: center;
     justify-content: center;
     row-gap: 25px;
+    padding-block: 70px;
 }
 
 /* MAIN LOGO AND THEME */
