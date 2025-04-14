@@ -25,6 +25,7 @@ const calculatorObject = {
     },
     output: {
         outputText: undefined,
+        outputState: 0,
     }
 };
 
@@ -62,6 +63,7 @@ function handlingTheNumberKeys(value) {
             screenText.textContent = outputValue2;
         };
     };
+    calculatorObject.output.outputState = 0;
 };
 
 // HANDLING THE OPERATOR BUTTONS
@@ -83,26 +85,30 @@ function handlingTheOperator(value) {
 // DELETING A CHARACTER
 
 function deletingACharacter() {
-    if (calculatorObject.input.inputOperator === undefined) {
-        if (calculatorObject.input.inputArr1.length > 1) {
-            calculatorObject.input.inputArr1.pop();
-            const outputValue1 = calculatorObject.input.inputArr1.join('').replaceAll(',', '');
-            screenText.textContent = outputValue1;
+    if (calculatorObject.output.outputState === 0) {
+        if (calculatorObject.input.inputOperator === undefined) {
+            if (calculatorObject.input.inputArr1.length > 1) {
+                calculatorObject.input.inputArr1.pop();
+                const outputValue1 = calculatorObject.input.inputArr1.join('').replaceAll(',', '');
+                screenText.textContent = outputValue1;
+            } else {
+                calculatorObject.input.inputArr1 = [0];
+                const outputValue1 = calculatorObject.input.inputArr1.join('').replaceAll(',', '');
+                screenText.textContent = outputValue1;
+            };
         } else {
-            calculatorObject.input.inputArr1 = [0];
-            const outputValue1 = calculatorObject.input.inputArr1.join('').replaceAll(',', '');
-            screenText.textContent = outputValue1;
+            if (calculatorObject.input.inputArr2.length > 1) {
+                calculatorObject.input.inputArr2.pop();
+                const outputValue2 = calculatorObject.input.inputArr2.join('').replaceAll(',', '');
+                screenText.textContent = outputValue2;
+            } else {
+                calculatorObject.input.inputArr2 = [0];
+                const outputValue2 = calculatorObject.input.inputArr2.join('').replaceAll(',', '');
+                screenText.textContent = outputValue2;
+            };
         };
     } else {
-        if (calculatorObject.input.inputArr2.length > 1) {
-            calculatorObject.input.inputArr2.pop();
-            const outputValue2 = calculatorObject.input.inputArr2.join('').replaceAll(',', '');
-            screenText.textContent = outputValue2;
-        } else {
-            calculatorObject.input.inputArr2 = [0];
-            const outputValue2 = calculatorObject.input.inputArr2.join('').replaceAll(',', '');
-            screenText.textContent = outputValue2;
-        };
+        bottomScreenText.textContent = '';
     };
 };
 
@@ -132,6 +138,7 @@ function calculateTheInputs() {
             };
         };
     
+        calculatorObject.output.outputState = 1;
         
         // OUTPUT TEXT
         calculatorObject.output.outputText = output();
