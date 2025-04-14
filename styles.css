@@ -58,6 +58,7 @@ main {
     display: flex;
     justify-content: flex-end;
     overflow: hidden;
+    position: relative;
 }
 
 .main-calculator-screen-text {
@@ -65,6 +66,13 @@ main {
     font-size: 2.8rem;
     font-weight: var(--font-weight-700);
     padding-top: 5px;
+}
+
+.main-calculator-screen-bottom-text {
+    color: rgb(222, 222, 222);
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
 }
 
 /* MAIN CALCULATOR KEYBOARD */
